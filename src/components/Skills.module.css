@@ -1,0 +1,58 @@
+.section { position: relative; z-index: 1; padding: 8rem 4rem; }
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+.header h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.header h2 span { -webkit-text-stroke: 1px var(--accent); color: transparent; }
+.line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(0,229,255,0.3), transparent); margin: 0 2rem 0.8rem; }
+.eyebrow { font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(0,229,255,0.08);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+.card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,229,255,0.03), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-4px); }
+.card:hover::before { opacity: 1; }
+
+.icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag {
+  font-size: 0.65rem;
+  padding: 0.3rem 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cyan  { border: 1px solid rgba(0,229,255,0.2); color: var(--accent); background: rgba(0,229,255,0.05); }
+.pink  { border: 1px solid rgba(255,61,127,0.3); color: var(--accent2); background: rgba(255,61,127,0.05); }
+.purple{ border: 1px solid rgba(162,89,255,0.3); color: var(--accent3); background: rgba(162,89,255,0.05); }
+
+@media (max-width: 768px) {
+  .section { padding: 6rem 1.5rem; }
+  .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .line { display: none; }
+}

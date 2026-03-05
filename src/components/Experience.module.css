@@ -1,0 +1,48 @@
+.section { position: relative; z-index: 1; padding: 8rem 4rem; }
+
+.header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 4rem; }
+.header h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.04em; white-space: nowrap; }
+.header h2 span { -webkit-text-stroke: 1px var(--accent); color: transparent; }
+.line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(0,229,255,0.3), transparent); margin: 0 2rem 0.8rem; }
+.eyebrow { font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
+
+.timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent3), transparent);
+}
+
+.item { padding-left: 3rem; padding-bottom: 4rem; position: relative; }
+
+.dot {
+  position: absolute; left: -5px; top: 0.4rem;
+  width: 11px; height: 11px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+}
+.dot.cyan   { background: var(--accent);  box-shadow: 0 0 12px var(--accent); }
+.dot.pink   { background: var(--accent2); box-shadow: 0 0 12px var(--accent2); }
+.dot.purple { background: var(--accent3); box-shadow: 0 0 12px var(--accent3); }
+
+.meta { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
+.period { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.period.cyan   { color: var(--accent); }
+.period.pink   { color: var(--accent2); }
+.period.purple { color: var(--accent3); }
+.company { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+
+.item h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.loc { font-size: 0.7rem; color: var(--muted); margin-bottom: 1.2rem; }
+
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.bullets li { font-size: 0.82rem; color: var(--muted); line-height: 1.7; padding-left: 1.2rem; position: relative; }
+.bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; }
+.bullets li :global(b) { color: var(--text); font-weight: 500; }
+
+@media (max-width: 768px) {
+  .section { padding: 6rem 1.5rem; }
+  .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .line { display: none; }
+}
